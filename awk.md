@@ -54,3 +54,21 @@ a b c d
 $ echo a b c | awk '{$1="d"; print $0}'
 d b c
 ```
+
+#### 设置FS/OFS
+
+```bash
+$ echo a,b,c,d | awk 'BEGIN{FS=",";OFS=","} {print $0}'
+a,b,c,d
+
+# 替换了内容, 也可以替换文件的
+$ echo a,b,c,d | awk 'BEGIN{FS=",";OFS=","} {$3="haha";print $0}'
+a,b,haha,d
+```
+
+#### 对指定的列进行汇总
+
+```bash
+# 对第二列rss进行汇总
+ps -u postgres o pid,rss:20,cmd | awk 'NR>1 {A+=$2} {print} END{print "Total RSS:" A}'
+```
