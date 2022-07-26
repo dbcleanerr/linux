@@ -33,12 +33,24 @@ awk '{printf("%s,%s\n",FILENAME,$0)}' *.csv > all.dat
 #### 大/小写
 
 ```bash
-echo Wps | awk '{printf("%s\n",toupper($0))}'
-echo Wps | awk '{printf("%s\n",tolower($0))}'
+$ echo Wps | awk '{printf("%s\n",toupper($0))}'
+WPS
+$ echo Wps | awk '{printf("%s\n",tolower($0))}'
+wps
 ```
 
 #### 取环境变量
 
 ```bash
-echo Wps | awk '{printf("%s\n", ENVIRON["LANG"])}'
+$ echo Wps | awk '{printf("%s\n", ENVIRON["LANG"])}'
+en_US.UTF-8
+```
+
+#### 添加/替换字段
+
+```basj
+$ echo a b c | awk '{$4="d"; print $0}'
+a b c d
+$ echo a b c | awk '{$1="d"; print $0}'
+d b c
 ```
