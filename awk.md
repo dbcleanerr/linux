@@ -1,4 +1,4 @@
-### awk内置变量
+#### awk内置变量
 
 
 
@@ -24,14 +24,21 @@ ARGC：命令行参数的个数
 ARGV：数组，保存的是命令行所给定的各参数
 ```
 
-### 添加文件名
+#### 添加文件名
 
 ```bash
 awk '{printf("%s,%s\n",FILENAME,$0)}' *.csv > all.dat
 ```
 
-### 大/小写
+#### 大/小写
 
 ```bash
+echo Wps | awk '{printf("%s\n",toupper($0))}'
+echo Wps | awk '{printf("%s\n",tolower($0))}'
+```
 
+#### 取环境变量
+
+```bash
+echo Wps | awk '{printf("%s\n", ENVIRON["LANG"])}'
 ```
