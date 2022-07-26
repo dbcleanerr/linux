@@ -72,3 +72,16 @@ a,b,haha,d
 # 对第二列rss进行汇总
 ps -u postgres o pid,rss:20,cmd | awk 'NR>1 {A+=$2} {print} END{print "Total RSS:" A}'
 ```
+
+#### 按行的长度进行排序
+
+```bash
+awk '{ print length(), $0 | "sort -n" }' a.txt
+```
+
+#### group by的功能
+
+```bash
+# select col04,count(*) from a.dat.gz group by col04
+hdfs dfs -text /files/833/20180626/a.dat.gz | awk -F "|" '{print $4}' | awk '{arr[$1]+=1}END{for(i in arr)print i,arr[i]}' | sort -n -k 2  | tail
+```
