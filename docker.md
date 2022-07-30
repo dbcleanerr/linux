@@ -12,7 +12,7 @@ Docker version 20.10.17, build 100c701
 
 ### docker在CentOS7上的安装
 
-```bash
+```PowerShell
 yum install -y yum-utils device-mapper-persistent-data lvm2
 
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
