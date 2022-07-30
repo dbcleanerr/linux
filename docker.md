@@ -37,7 +37,7 @@ docker info
 
 ##### 容器
 
-```bash
+```shell
 # 查看容器
 docker container ls -a
 
