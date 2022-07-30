@@ -25,7 +25,48 @@ systemctl start docker
 
 ### 基本命令
 
+##### docker
+
 ```bash
 # 查看版本
 docker --version
+
+# info
+docker info
+```
+
+##### 容器
+
+```bash
+# 查看容器
+docker container ls -a
+
+# 启动容器
+docker container start 73ec05a75472
+
+# 停止容器
+docker container stop 73ec05a75472
+
+# 删除容器
+docker container rm 73ec05a75472
+
+# 运行容器
+# -d: 后台运行
+# --name: 指定名字
+# --端口
+docker run -d --name postgres14 -p 3721:3721 postgres:14.4
+```
+
+```bash
+
+
+# 下载镜像
+# https://hub.docker.com/
+docker pull postgres:14.4
+C:\Users\zyy>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+postgres     14.4      1133a9cdc367   2 weeks ago   376MB
+
+
+
 ```
