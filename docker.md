@@ -12,7 +12,7 @@ Docker version 20.10.17, build 100c701
 
 ### docker在CentOS7上的安装
 
-```PowerShell
+```bash
 yum install -y yum-utils device-mapper-persistent-data lvm2
 
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -37,7 +37,7 @@ docker info
 
 ##### 容器
 
-```shell
+```bash
 # 查看容器
 docker container ls -a
 
@@ -54,14 +54,16 @@ docker container rm 73ec05a75472
 # -d: 后台运行
 # --name: 指定名字
 # --端口
-docker run -d --name postgres14 -p 3721:3721 postgres:14.4
+docker run -d --name postgres14 -p 3721:3721 -e POSTGRES_PASSWORD=welcome postgres:14.4
 ```
 
+##### 镜像
+
+> https://hub.docker.com/
+
 ```bash
-
-
 # 下载镜像
-# https://hub.docker.com/
+
 docker pull postgres:14.4
 C:\Users\zyy>docker images
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
